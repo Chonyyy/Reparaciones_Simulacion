@@ -18,11 +18,8 @@ def reparar_maquinas(F, G, m, n):
     tiempo_para_reparar = 0
 
     while True:
-        if not roturas:
-            break
-
         tiempo_para_reparar = roturas[0]
-        while not maquinas_a_reparar != 0 and tiempo_reparacion < tiempo_para_reparar:
+        while maquinas_a_reparar != 0 and tiempo_reparacion < tiempo_para_reparar:
             disponible += 1
             maquinas_a_reparar -= 1
             tiempo_para_reparar -= tiempo_reparacion
@@ -38,7 +35,7 @@ def reparar_maquinas(F, G, m, n):
 
         disponible -=   1
         maquinas_a_reparar +=   1
-        heapq.heappush(roturas, F())
+        heapq.heappush(roturas, t + F())
 
     return t
 
