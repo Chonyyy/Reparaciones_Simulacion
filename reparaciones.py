@@ -48,5 +48,5 @@ def reparar_maquinas(F, G, m, n):
 for i in distribuciones:
     for j in distribuciones:
         result = reparar_maquinas(i,j,5,3)
-        print(f"Resultado de las distribuciones {i} y {j} : {result}")
+        print(f"Resultado de las distribuciones {i.__name__} y {j.__name__} : {result}")
     
