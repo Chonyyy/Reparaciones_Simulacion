@@ -1,12 +1,8 @@
 import heapq
+import distribuciones as d
 
-def F():
-    # Implementación de la función F
-    pass
 
-def G():
-    # Implementación de la función G
-    pass
+distribuciones = [d.P,d.E,d.N,d.B,d.G,d.U,d.L,d.W]
 
 def reparar_maquinas(F, G, m, n):
     MaquinasAReparar =   0
@@ -19,6 +15,7 @@ def reparar_maquinas(F, G, m, n):
     t =   0
     available = n
     Repairing_time = G()
+    time_to_repair =  0
 
     while True:
         if not Roturas:
@@ -47,5 +44,9 @@ def reparar_maquinas(F, G, m, n):
 
 
 # Ejemplo de uso de la función reparar_maquinas
-tiempo_total = reparar_maquinas(F, G,  5,  3)
-print(tiempo_total)
+
+for i in distribuciones:
+    for j in distribuciones:
+        result = reparar_maquinas(i,j,5,3)
+        print(f"Resultado de las distribuciones {i} y {j} : {result}")
+    
