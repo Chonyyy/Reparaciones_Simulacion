@@ -39,6 +39,15 @@ def reparar_maquinas(F, G, m, n):
 
     return t
 
+def Multiples_Simulaciones(F, G, m, n, Rep):
+
+    Resultados = []
+
+    for _ in range(Rep):
+        Resultados.append(reparar_maquinas(F, G, m, n))
+    
+    return Resultados
+
 
 # Ejemplo de uso de la función reparar_maquinas
 
