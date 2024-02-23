@@ -1,22 +1,16 @@
 import scipy.stats as stats
 
-def P():
-    """
-    Genera un valor de una distribución Poisson con media  5.
-    """
-    return stats.poisson.rvs(mu=5, size=1)[0]
-
-def E():
+def E(escala):
     """
     Genera un valor de una distribución exponencial con escala  1.
     """
-    return stats.expon.rvs(scale=1, size=1)[0]
+    return stats.expon.rvs(scale=escala, size=1)[0]
 
-def N():
+def N(media,desviation):
     """
     Genera un valor de una distribución normal con media  5 y desviación estándar  1.
     """
-    return stats.norm.rvs(loc=5, scale=1, size=1)[0]
+    return stats.norm.rvs(loc=media, scale=desviation, size=1)[0]
 
 def B():
     """

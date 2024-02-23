@@ -1,8 +1,5 @@
 import heapq
-import distribuciones as d
-
-
-distribuciones = [d.P,d.E,d.N,d.B,d.G,d.U,d.L,d.W]
+import scipy.stats as stats
 
 def reparar_maquinas(F, G, m, n):
     maquinas_a_reparar =   0
@@ -18,7 +15,7 @@ def reparar_maquinas(F, G, m, n):
     tiempo_para_reparar = 0
 
     while True:
-        tiempo_para_reparar = roturas[0]
+        tiempo_para_reparar = roturas[0]-t
         while maquinas_a_reparar != 0 and tiempo_reparacion < tiempo_para_reparar:
             disponible += 1
             maquinas_a_reparar -= 1
@@ -28,7 +25,7 @@ def reparar_maquinas(F, G, m, n):
         if maquinas_a_reparar !=   0 and tiempo_reparacion > tiempo_para_reparar:
             tiempo_reparacion -= tiempo_para_reparar
 
-        t += heapq.heappop(roturas)
+        t = heapq.heappop(roturas)
 
         if disponible ==   0:
             break
@@ -39,20 +36,38 @@ def reparar_maquinas(F, G, m, n):
 
     return t
 
-def Multiples_Simulaciones(F, G, m, n, Rep):
+def reparar_maquinas_V2(F, G, m, n):
+    maquinas_a_reparar =   0
+    t = 0
+    disponible = n
+    tiempo_reparacion = G()
+
+    while True:
+        tiempo_para_reparar = F()
+        t += tiempo_para_reparar
+        while maquinas_a_reparar != 0 and tiempo_reparacion < tiempo_para_reparar:
+            disponible += 1
+            maquinas_a_reparar -= 1
+            tiempo_para_reparar -= tiempo_reparacion
+            tiempo_reparacion = G()
+
+        if maquinas_a_reparar !=   0 and tiempo_reparacion > tiempo_para_reparar:
+            tiempo_reparacion -= tiempo_para_reparar
+
+        if disponible ==   0:
+            break
+
+        disponible -=   1
+        maquinas_a_reparar +=   1
+    return t
+
+def Multiples_Simulaciones(F, G, m, n, Rep, V2=True):
 
     Resultados = []
 
     for _ in range(Rep):
-        Resultados.append(reparar_maquinas(F, G, m, n))
-    
+        if V2:
+            Resultados.append(reparar_maquinas_V2(F, G, m, n))
+        else:
+            Resultados.append(reparar_maquinas(F, G, m, n))
     return Resultados
-
-
-# Ejemplo de uso de la función reparar_maquinas
-
-for i in distribuciones:
-    for j in distribuciones:
-        result = reparar_maquinas(i,j,5,3)
-        print(f"Resultado de las distribuciones {i.__name__} y {j.__name__} : {result}")
-    
