@@ -19,15 +19,15 @@ El objetivo del proyecto es analizar distintos casos en los que llevar a cabo es
 
 **Variables que describen el problema**
 
-t -> Tiempo de la simulación
+t -> Tiempo de la simulación.
 
-F -> Distribución que sigue el tiempo de duración de las máquinas antes de romperse
+F -> Distribución que sigue el tiempo de duración de las máquinas antes de romperse.
 
-G -> Distribución que sigue el tiempo con que se reparan las máquinas
+G -> Distribución que sigue el tiempo de reparación de las máquinas.
 
-n -> Máquinas que necesita el sistema para funcionar
+n -> Máquinas que necesita el sistema para funcionar.
 
-m -> Máquinas que se tienen de repuesto inicialmente
+m -> Máquinas que se tienen de repuesto inicialmente.
 
 
 ## S2 Detalles de implementación:
@@ -80,12 +80,12 @@ Las simulaciones del modelo 1 resultaron (la mayoria) en una media de tiempo rel
 
 Modelo| F | G | n | m | Media | Varianza
 ---    |---|---|---|---|---    |---
-1 | Exp(4) | Norm(6,6/10) | 10 | 20 | 8.7 | 51.5
-2|Exp(4) | Norm(6,6/10) | 10 | 20 | 230 | 67
-1 | Exp(10) | Norm(15,15/10) | 20 | 30 | 15.7 | 52.3
-2|Exp(10) | Norm(15,15/10) | 20 | 30 | 875.3 | 215
-1 | Exp(20) | Norm(30,30/10) | 10 | 10 | 22.1 | 55.4
-2|Exp(20) | Norm(30,30/10) | 10 | 10 | 554.3 | 214.7
+1 | Exp(4) | Norm(6,$\frac{6}{10}$) | 10 | 20 | 8.7 | 51.5
+2|Exp(4) | Norm(6,$\frac{6}{10}$) | 10 | 20 | 230 | 67
+1 | Exp(10) | Norm(15,$\frac{15}{10}$) | 20 | 30 | 15.7 | 52.3
+2|Exp(10) | Norm(15,$\frac{15}{10}$) | 20 | 30 | 875.3 | 215
+1 | Exp(20) | Norm(30,$\frac{30}{10}$) | 10 | 10 | 22.1 | 55.4
+2|Exp(20) | Norm(30,$\frac{30}{10}$) | 10 | 10 | 554.3 | 214.7
 
 >nota: Los valores de la media y varianza son aproximaciones. Para estos resultados se hicieron un total de 1000 simulaciones con cada conjunto de parámetros.
 
@@ -141,13 +141,11 @@ Importante destacar que esta estimación solo es válida en el modelo 2 por la m
 
 Modelo| F | G | n | m | Media estimada |Media de simulación|
 ---    |---|---|---|---|---    |---
-2|Exp(4) | Norm(6,6/10) | 10 | 20 | 232 | 230
-2|Exp(10) | Norm(15,15/10) | 20 | 30 | 880 | 875.5
-2|Exp(20) | Norm(30,30/10) | 10 | 10 | 560 | 554.3
-2|Exp(2) | Norm(4,4/10) | 30 | 15 | 58 | 59.1
+2|Exp(4) | Norm(6,$\frac{6}{10}$) | 10 | 20 | 232 | 230
+2|Exp(10) | Norm(15,$\frac{15}{10}$) | 20 | 30 | 880 | 875.5
+2|Exp(20) | Norm(30,$\frac{30}{10}$) | 10 | 10 | 560 | 554.3
+2|Exp(2) | Norm(4,$\frac{4}{10}$) | 30 | 15 | 58 | 59.1
 
 >nota: Los valores de la media y varianza son aproximaciones. Para estos resultados se hicieron un total de 1000 simulaciones con cada conjunto de parámetros.
 
 Estos resultados se pueden comprobar ejecutando el archivo Analisis de resultados.py y probar los parámetros de la tabla u otros deseados.
-
-halla
