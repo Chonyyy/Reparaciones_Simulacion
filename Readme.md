@@ -80,12 +80,12 @@ Las simulaciones del modelo 1 resultaron (la mayoria) en una media de tiempo rel
 
 Modelo| F | G | n | m | Media | Varianza
 ---    |---|---|---|---|---    |---
-1 | Exp(4) | Norm(6,$\frac{6}{10}$) | 10 | 20 | 8.7 | 51.5
-2|Exp(4) | Norm(6,$\frac{6}{10}$) | 10 | 20 | 230 | 67
-1 | Exp(10) | Norm(15,$\frac{15}{10}$) | 20 | 30 | 15.7 | 52.3
-2|Exp(10) | Norm(15,$\frac{15}{10}$) | 20 | 30 | 875.3 | 215
-1 | Exp(20) | Norm(30,$\frac{30}{10}$) | 10 | 10 | 22.1 | 55.4
-2|Exp(20) | Norm(30,$\frac{30}{10}$) | 10 | 10 | 554.3 | 214.7
+1 | Exp(4) | Norm (6, $\frac{6}{10}$) | 10 | 20 | 8.7 | 51.5
+2|Exp(4) | Norm (6, $\frac{6}{10}$) | 10 | 20 | 230 | 67
+1 | Exp(10) | Norm (15, $\frac{15}{10}$) | 20 | 30 | 15.7 | 52.3
+2|Exp(10) | Norm (15, $\frac{15}{10}$) | 20 | 30 | 875.3 | 215
+1 | Exp(20) | Norm (30, $\frac{30}{10}$) | 10 | 10 | 22.1 | 55.4
+2|Exp(20) | Norm (30, $\frac{30}{10}$) | 10 | 10 | 554.3 | 214.7
 
 >nota: Los valores de la media y varianza son aproximaciones. Para estos resultados se hicieron un total de 1000 simulaciones con cada conjunto de parámetros.
 
@@ -94,7 +94,7 @@ Estos resultados se pueden comprobar ejecutando el archivo Analisis de resultado
 
 **Interpretación de los resultados**
 
-La razón por la que las simulaciones duran poco tiempo en el modelo 1 se debe a que todos los tiempos de rotura se calculan a la vez y siguen la misma distribución, por lo que son valores que "oscilan" alrededor de un mismo valor, esto significa que existe una probabilidad no pequeña de que todas tengan tiempos de rotura similares, y por tanto se rompan a la vez, dejando desprotejido el sistema. En el caso del modelo 2 ocurre lo contrario, al calcular los tiempos de rotura de una máquina a la vez es poco probable que se rompan dos máquinas simultáneamente.
+La razón por la que las simulaciones duran poco tiempo en el modelo 1 se debe a que todos los tiempos de rotura se calculan a la vez y siguen la misma distribución, por lo que son valores que "oscilan" alrededor de un mismo valor, esto significa que existe una probabilidad no pequeña de que todas tengan tiempos de rotura similares, y por tanto se rompan a la vez, dejando desprotegido el sistema. En el caso del modelo 2 ocurre lo contrario, al calcular los tiempos de rotura de una máquina a la vez es poco probable que se rompan dos máquinas simultáneamente.
 
 Sin embargo tambien podemos observar que los resultados del modelo 2 son más impredecibles que los del 1, al tener una varianza mayor los resultados independientes de cada simulación abarcaron un conjunto más amplio de valores que los valores de las simulaciones del modelo 1, la razón de que esto ocurra se basa en lo mismo, los valores de las simulaciones del modelo 1 siempre son pequeños por lo explicado anteriormente, abarcan un conjunto de números pequeños, pero en el modelo 2 tenemos simulaciones que duraron mucho tiempo, y otras que duraron poco, debido a que la característica de generar solo un tiempo de rotura a la vez vuelve más impredecible al modelo.
 
@@ -124,9 +124,9 @@ a la primera máquina. Luego despejando $k$:
 
 $\frac{T}{E(F)}=m+\frac{T-E(F)}{E(G)}$
 
-$T*E(G) = m*E(F)*E(G) + T*E(F) - E(F)^2$
+$T\*E(G)=m*E(F)*E(G)+T\*E(F)-E(F)^2$
 
-$T=(m*E(G) - E(F)) * \frac{E(F)}{E(G) - E(F)}$
+$T=(m\*E(G)-E(F))*\frac{E(F)}{E(G)-E(F)}$
 
 Aqui asumimos que $E(G)$ es mayor que $E(F)$, ya que de lo contrario el valor esperado
 sería potencialmente infinito.
@@ -141,10 +141,10 @@ Importante destacar que esta estimación solo es válida en el modelo 2 por la m
 
 Modelo| F | G | n | m | Media estimada |Media de simulación|
 ---    |---|---|---|---|---    |---
-2|Exp(4) | Norm(6,$\frac{6}{10}$) | 10 | 20 | 232 | 230
-2|Exp(10) | Norm(15,$\frac{15}{10}$) | 20 | 30 | 880 | 875.5
-2|Exp(20) | Norm(30,$\frac{30}{10}$) | 10 | 10 | 560 | 554.3
-2|Exp(2) | Norm(4,$\frac{4}{10}$) | 30 | 15 | 58 | 59.1
+2|Exp(4) | Norm (6, $\frac{6}{10}$) | 10 | 20 | 232 | 230
+2|Exp(10) | Norm (15, $\frac{15}{10}$) | 20 | 30 | 880 | 875.5
+2|Exp(20) | Norm (30, $\frac{30}{10}$) | 10 | 10 | 560 | 554.3
+2|Exp(2) | Norm (4, $\frac{4}{10}$) | 30 | 15 | 58 | 59.1
 
 >nota: Los valores de la media y varianza son aproximaciones. Para estos resultados se hicieron un total de 1000 simulaciones con cada conjunto de parámetros.
 
